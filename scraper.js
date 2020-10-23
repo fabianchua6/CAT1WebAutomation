@@ -6,7 +6,7 @@ const CTA_SELECTOR = '#wp-submit';
 const DOTENV = require('dotenv');
 
 async function startBrowser() {
-    const browser = await puppeteer.launch({headless:false, slowMo:30 }); //slowmo 30ms to ensure credentials are entered in a timely manner
+    const browser = await puppeteer.launch({slowMo:30 }); //slowmo 30ms to ensure credentials are entered in a timely manner
     const page = await browser.newPage();
     return { browser, page };
 }
@@ -28,6 +28,9 @@ async function playTest(url) {
 
     await page.screenshot({ path: 'weather.png' });
     await closeBrowser(browser);
+
+
+
     //await browser.waitForTarget(()=> false);
 }
 
